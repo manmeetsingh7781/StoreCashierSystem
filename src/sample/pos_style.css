@@ -1,0 +1,15 @@
+.grid{
+    -fx-background-image: url("file:Data/Images/xCzqV7I.gif");
+}
+
+.title{
+    -fx-text-fill: white;
+}
+.exit_btn{
+ -fx-cursor: hand;
+ }
+
+ .done_btn{
+ -fx-background-color: #178dfc;
+  -fx-cursor: hand; -fx-text-fill:white;
+ }

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.collections.FXCollections?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.Menu"
+            prefHeight="400.0" prefWidth="600.0" fx:id="borderPane">
+    <stylesheets>
+        <URL value="@menu.css" />
+    </stylesheets>
+    <left>
+            <GridPane hgap="10" vgap="10" fx:id="gridPane">
+                <rowConstraints>
+                    <RowConstraints percentHeight="50"/>
+                    <RowConstraints percentHeight="2"/>
+                    <RowConstraints percentHeight="2"/>
+                    <RowConstraints percentHeight="2"/>
+                    <RowConstraints percentHeight="2"/>
+                </rowConstraints>
+
+                <ListView styleClass="tansition_list" fx:id="transcition_list" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                <TilePane GridPane.columnIndex="0" GridPane.rowIndex="1" fx:id="left_itemBtns_pane">
+                    <Button text="Hold" fx:id="hold_trans"/>
+                    <Button text="Cancel" fx:id="cancel_trans" onAction="#clearTrans"/>
+                </TilePane>
+                <Label styleClass="trans_info" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <Label styleClass="trans_info" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <Label styleClass="trans_info" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <Label styleClass="trans_info" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+
+            </GridPane>
+
+    </left>
+
+    <center>
+        <GridPane hgap="10" vgap="10">
+            <rowConstraints>
+                <RowConstraints percentHeight="30"/>
+                <RowConstraints percentHeight="30"/>
+                <RowConstraints percentHeight="30"/>
+            </rowConstraints>
+            <columnConstraints>
+                <ColumnConstraints prefWidth="100" percentWidth="100"/>
+            </columnConstraints>
+        <VBox fx:id="mainPanel" styleClass="mainPanel" GridPane.rowIndex="0" GridPane.columnIndex="0">
+            <StackPane>
+                <Button  mnemonicParsing="false"  StackPane.alignment="TOP_RIGHT" styleClass="settings_btn">
+                    <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+                            <Image url="http://icons.iconarchive.com/icons/pelfusion/long-shadow-media/512/Settings-icon.png"/>
+                        </ImageView>
+                    </graphic>
+                </Button>
+
+
+            <ListView styleClass="items_display" fx:id="items_display" StackPane.alignment="CENTER" orientation="HORIZONTAL" prefHeight="30.0" maxWidth="210.0" BorderPane.alignment="CENTER">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="All Departments" />
+                        <String fx:value="In Store"/>
+                        <String fx:value="Other"/>
+                    </FXCollections>
+                </items>
+            </ListView>
+            </StackPane>
+
+            <Label/>
+            <Label/>
+            <TilePane vgap="10" hgap="10" fx:id="items_panel" VBox.vgrow="SOMETIMES" BorderPane.alignment="CENTER" styleClass="items_panel"/>
+        </VBox>
+            <GridPane  fx:id="keyPadGrid" hgap="10" vgap="10" GridPane.rowIndex="1" styleClass="keyPadGrid" GridPane.columnIndex="0"  GridPane.hgrow="ALWAYS">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                    <ColumnConstraints percentWidth="25"/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints percentHeight="15"/>
+                    <RowConstraints percentHeight="15"/>
+                    <RowConstraints percentHeight="15"/>
+                    <RowConstraints percentHeight="15"/>
+                    <RowConstraints percentHeight="15"/>
+                </rowConstraints>
+
+
+                <TextField fx:id="keyPadText" GridPane.columnIndex="0" GridPane.rowIndex="0" prefWidth="160"  GridPane.columnSpan="2"
+                           promptText="0.0"  prefHeight="100" alignment="CENTER_RIGHT">
+                    <font>
+                        <Font name="Rouge" size="32"/>
+                    </font>
+                </TextField>
+                <StackPane  prefHeight="10" minHeight="10"  GridPane.columnIndex="2" GridPane.rowIndex="0" >
+                    <Button fx:id="bkSpaceBtn" text="Del" StackPane.alignment="CENTER_LEFT"
+                            style="-fx-cursor: hand;-fx-background-color: grey; -fx-text-fill: white;"
+                            prefHeight="100" prefWidth="75">
+                        <font>
+                            <Font name="Rouge" size="22"/>
+                        </font>
+                    </Button>
+                    <Button onAction="#clearKeyPadText" text="X" GridPane.halignment="RIGHT"  StackPane.alignment="CENTER_RIGHT"
+                            style="-fx-cursor: hand;-fx-background-color: red;"
+                            prefHeight="100" prefWidth="75" >
+                        <font>
+                            <Font name="Rouge" size="22"/>
+                        </font>
+                    </Button>
+                </StackPane>
+
+
+
+
+
+                <Button styleClass="funs_btn" text="Orders" prefWidth="220" prefHeight="100" GridPane.columnIndex="3" GridPane.rowIndex="0" GridPane.halignment="CENTER"/>
+
+
+
+                <Button styleClass="calc_btn" text="7" prefWidth="220" prefHeight="100" GridPane.columnIndex="0" GridPane.rowIndex="1" GridPane.halignment="CENTER"/>
+                <Button styleClass="calc_btn" text="8" prefWidth="220" prefHeight="100" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.halignment="CENTER" />
+                <Button styleClass="calc_btn" text="9" prefWidth="220" prefHeight="100" GridPane.columnIndex="2" GridPane.rowIndex="1"  GridPane.halignment="CENTER"/>
+                <Button styleClass="calc_btn" fx:id="rand_amount1" prefWidth="220" prefHeight="100" GridPane.columnIndex="3" GridPane.rowIndex="1"  GridPane.halignment="CENTER"/>
+
+                <Button styleClass="calc_btn" text="4" prefWidth="220" prefHeight="100" GridPane.columnIndex="0" GridPane.rowIndex="2" GridPane.halignment="CENTER"/>
+                <Button styleClass="calc_btn" text="5" prefWidth="220" prefHeight="100" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.halignment="CENTER" />
+                <Button styleClass="calc_btn" text="6" prefWidth="220" prefHeight="100" GridPane.columnIndex="2" GridPane.rowIndex="2"  GridPane.halignment="CENTER"/>
+                <Button styleClass="calc_btn" fx:id="rand_amount2"  prefWidth="220" prefHeight="100" GridPane.columnIndex="3" GridPane.rowIndex="2"  GridPane.halignment="CENTER"/>
+
+                <Button styleClass="calc_btn" text="1" prefWidth="220" prefHeight="100" GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.halignment="CENTER"/>
+                <Button styleClass="calc_btn" text="2" prefWidth="220" prefHeight="100" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.halignment="CENTER" />
+                <Button styleClass="calc_btn" text="3" prefWidth="220" prefHeight="100" GridPane.columnIndex="2" GridPane.rowIndex="3"  GridPane.halignment="CENTER"/>
+                <Button styleClass="calc_btn" fx:id="rand_amount3" prefWidth="220" prefHeight="100" GridPane.columnIndex="3" GridPane.rowIndex="3"  GridPane.halignment="CENTER"/>
+                <Button styleClass="calc_btn" text="0" prefWidth="220" prefHeight="100" GridPane.columnIndex="0"  GridPane.rowIndex="4"  GridPane.halignment="CENTER"/>
+                <Button styleClass="calc_btn" text="00" prefWidth="220" prefHeight="100" GridPane.columnIndex="1"  GridPane.rowIndex="4"  GridPane.halignment="CENTER"/>
+                <Button styleClass="calc_btn" text="*" prefWidth="220" prefHeight="100" GridPane.columnIndex="2"  GridPane.rowIndex="4"  GridPane.halignment="CENTER"/>
+                <Button styleClass="calc_btn" fx:id="rand_amount4"  prefWidth="220" prefHeight="100" GridPane.columnIndex="3"  GridPane.rowIndex="4"  GridPane.halignment="CENTER"/>
+
+
+                <Button styleClass="cash_btn" text="Refund" prefWidth="220" prefHeight="100" GridPane.columnIndex="4"  GridPane.rowIndex="0"  GridPane.halignment="CENTER"/>
+                <Button styleClass="cash_btn" text="Credit/Debit" prefWidth="220" prefHeight="100" GridPane.columnIndex="4"  GridPane.rowIndex="1"  GridPane.halignment="CENTER"/>
+                <Button styleClass="cash_btn"  text="Cash" prefWidth="220" prefHeight="100" GridPane.columnIndex="5"  GridPane.rowIndex="4"  GridPane.halignment="CENTER"/>
+                <Button styleClass="cash_btn"  text="EBT"  prefWidth="220" prefHeight="100" GridPane.columnIndex="5"  GridPane.rowIndex="1"  GridPane.halignment="CENTER"/>
+
+                <Button styleClass="gas_btn" text="Gas Pump" prefWidth="220" prefHeight="100" GridPane.columnIndex="5"  GridPane.rowIndex="0"  GridPane.halignment="CENTER"/>
+                <Button styleClass="funs_btn" text="Discount" prefWidth="220" prefHeight="100" GridPane.columnIndex="4"  GridPane.rowIndex="1"  GridPane.halignment="CENTER"/>
+                <Button styleClass="cash_btn" text="No-sale" prefWidth="220" prefHeight="100" GridPane.columnIndex="4"  GridPane.rowIndex="4"  GridPane.halignment="CENTER"/>
+
+                <Button styleClass="gas_btn" text="20-Gas" prefWidth="220" prefHeight="100" GridPane.columnIndex="4"  GridPane.rowIndex="2"  GridPane.halignment="CENTER"/>
+                <Button styleClass="gas_btn" text="30-Gas" prefWidth="220" prefHeight="100" GridPane.columnIndex="4"  GridPane.rowIndex="3"  GridPane.halignment="CENTER"/>
+                <Button styleClass="gas_btn" text="40-Gas" prefWidth="220" prefHeight="100" GridPane.columnIndex="5"  GridPane.rowIndex="2"  GridPane.halignment="CENTER"/>
+                <Button styleClass="gas_btn" text="10-Gas" prefWidth="220" prefHeight="100" GridPane.columnIndex="5"  GridPane.rowIndex="3"  GridPane.halignment="CENTER"/>
+
+
+            </GridPane>
+            <TilePane GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.halignment="CENTER" style="-fx-background-color: orange;">
+                <Button text="Calc"/>
+                <Button text="Apps"/>
+                <Button text="Manage Profile"/>
+            </TilePane>
+        </GridPane>
+    </center>
+
+</BorderPane>

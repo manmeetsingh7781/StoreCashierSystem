@@ -1,0 +1,46 @@
+
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.TextField?>
+
+<?import java.net.URL?>
+<GridPane alignment="center" hgap="10" vgap="10" styleClass="grid">
+    <stylesheets>
+        <URL value="@pos_style.css" />
+    </stylesheets>
+    <columnConstraints>
+        <ColumnConstraints percentWidth="20"/>
+        <ColumnConstraints percentWidth="60"/>
+        <ColumnConstraints percentWidth="40"/>
+        <ColumnConstraints percentWidth="10"/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints percentHeight="10"/>
+        <RowConstraints percentHeight="30"/>
+        <RowConstraints percentHeight="40"/>
+        <RowConstraints percentHeight="10"/>
+    </rowConstraints>
+<!--    Index : 0 -->
+    <Label styleClass="title" text="Setup your new POS System" GridPane.columnIndex="1" GridPane.rowIndex="0" GridPane.columnSpan="2">
+        <font>
+            <Font name="Rouge" size="16"/>
+        </font>
+    </Label>
+    <!--    Index : 1 -->
+    <TextField GridPane.rowIndex="1" styleClass="entry" GridPane.columnIndex="1"  GridPane.columnSpan="3"/>
+
+<!--    Exit Button  Index: 2 -->
+    <Button GridPane.columnIndex="3" GridPane.rowSpan="4"  GridPane.rowIndex="3" text="Exit" GridPane.columnSpan="4"
+            alignment="BASELINE_RIGHT" styleClass="exit_btn"/>
+
+<!--    Done Button Index: 3 -->
+    <Button GridPane.columnIndex="2" GridPane.rowIndex="3"
+            GridPane.rowSpan="4" text="Done" alignment="BASELINE_LEFT" GridPane.halignment="LEFT"
+    styleClass="done_btn"/>
+
+</GridPane>

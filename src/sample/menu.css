@@ -1,0 +1,33 @@
+.trans_info{
+     -fx-padding: 0 0 0 10;
+}
+
+.settings_btn{
+ -fx-border-radius: 100;
+ -fx-background-color: white;
+ -fx-cursor: hand;
+}
+
+
+.items_display{
+ -fx-cursor: hand;
+}
+
+.items_panel{
+   -fx-padding: 0 0 0 20;
+}
+.keyPadGrid{
+   -fx-padding: 0 20 0 20;
+}
+.funs_btn{
+    -fx-background-color: lightBlue;
+}
+
+
+.cash_btn{
+    -fx-background-color: lightGreen;
+}
+
+.gas_btn{
+    -fx-background-color: orange;
+}
